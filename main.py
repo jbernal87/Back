@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
+import random, uuid
+
+
 
 class client:
   def __init__(self, ids, cpf, customer, active, balance ):
@@ -26,7 +29,7 @@ class client:
     
   
 class manage_client():
-  def __init__(self):
+  def __init__(self):	
     self.client_list = []
   
   def add_client(self,clt):
@@ -36,8 +39,24 @@ class manage_client():
     return self.client_list
 
 
+
+
+
+
 mc = manage_client()  
-c = client("jose","343455647864578","jose luis bernal" , True, 1600)
+# c = client("jose","23733826876","jose luis bernal" , True, 1600)
+
+names = ["Pedro","Jose","Ana", "Dayana", "Luis", "Maria", "Janet", "Ramon", "Maciel", "Andre Kamicado", "Luisa Jimenez", " David", "Esther", "Yaima", "Raisa", "Jhon", "Victor", "Alejandro", "Danay", "Adriana"   ]
+
+def a_random_uuid(string_length=10):
+    """Returns a random string of length string_length."""
+    random = str(uuid.uuid4()) # Convert UUID format to a Python string.
+    random = random.upper() # Make all characters uppercase.
+    random = random.replace("-","") # Remove the UUID '-'.
+    return random[0:string_length] # Return the random string.
+
+print(a_random_uuid(6))
+
 
 
 """
