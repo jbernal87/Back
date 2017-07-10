@@ -1,8 +1,6 @@
 #!/usr/bin/python
 
-import random, uuid
-
-
+import random
 
 class client:
   def __init__(self, ids, cpf, customer, active, balance ):
@@ -39,23 +37,26 @@ class manage_client():
     return self.client_list
 
 
-
-
-
-
 mc = manage_client()  
 # c = client("jose","23733826876","jose luis bernal" , True, 1600)
 
 names = ["Pedro","Jose","Ana", "Dayana", "Luis", "Maria", "Janet", "Ramon", "Maciel", "Andre Kamicado", "Luisa Jimenez", " David", "Esther", "Yaima", "Raisa", "Jhon", "Victor", "Alejandro", "Danay", "Adriana"   ]
 
-def a_random_uuid(string_length=10):
-    """Returns a random string of length string_length."""
-    random = str(uuid.uuid4()) # Convert UUID format to a Python string.
-    random = random.upper() # Make all characters uppercase.
-    random = random.replace("-","") # Remove the UUID '-'.
-    return random[0:string_length] # Return the random string.
+for i in range(0,20):
+  a = random.randint(1,2) #generating 50-50 True-False Active client
+  if a == 1:
+	  a == True
+  else:
+	  a == False
+	  
+  my_id = random.randint(1000,4000) # generate id
+  cpf_gen  = random.randint(10**8,9*10**8) # generate random cpf can be change to if-else to generate  too cnpj 14 digits
+	
+  a_client = client(my_id,cpf_gen,names[i], a , 1000)
+	
+  mc.add_client(a_client)
 
-print(a_random_uuid(6))
+	
 
 
 
