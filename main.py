@@ -36,6 +36,19 @@ class manage_client():
   def get_client_list(self):
     return self.client_list
 
+  def get_media(self):
+    counter = 0
+    counter_e = 0
+    for x in self.client_list:
+      an_id = x.id_customer() 
+      value = x.vl_total()
+      if an_id > 1500 and an_id < 2700 and value>560 :
+        print(x.nm_customer())
+        counter+=value
+        counter_e+=1
+    
+    return counter/counter_e if counter_e > 0 else 0
+        
 
 mc = manage_client()  
 # c = client("jose","23733826876","jose luis bernal" , True, 1600)
@@ -52,9 +65,12 @@ for i in range(0,20):
   my_id = random.randint(1000,4000) # generate id
   cpf_gen  = random.randint(10**8,9*10**8) # generate random cpf can be change to if-else to generate  too cnpj 14 digits
 	
-  a_client = client(my_id,cpf_gen,names[i], a , 1000)
+  a_client = client(my_id,cpf_gen,names[i], a , random.randint(0,4000))
 	
   mc.add_client(a_client)
+  
+  
+print(mc.get_media())
 
 	
 
