@@ -40,22 +40,23 @@ else:
 
 
 
-sql = "SELECT * FROM tb_customer_account  WHERE id_customer BETWEEN 1500 AND 2700 AND vl_total > 560;"
+sql = "SELECT * FROM tb_customer_account  WHERE id_customer BETWEEN 1500 AND 2700 AND vl_total > 560 ORDER BY vl_total DESC;"
 cursor.execute(sql)
 
 results = cursor.fetchall()
 for row in results:
-      fname = row[0]
-      lname = row[1]
-      age = row[2]
-      sex = row[3]
-      income = row[4]
+      id_customer = row[0]
+      cpf_cnpj = row[1]
+      nm_customer = row[2]
+      is_active = row[3]
+      vl_total = row[4]
       # Now print fetched result
-      print ("fname = %s,lname = %s,age = %s,sex = %s,income = %s" % \
-             (fname, lname, age, sex, income ))
+      print ("id_customer = %s,cpf_cnpj = %s,nm_customer = %s,is_active = %s,vl_total = %s" % \
+             (id_customer, cpf_cnpj, nm_customer, is_active, vl_total ))
 
 cursor.execute("TRUNCATE TABLE tb_customer_account; ")
 db.commit()	
+
 
 
 """result = cursor.fetchall()
