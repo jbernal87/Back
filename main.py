@@ -65,7 +65,7 @@ for i in range(0,20):
   my_id = random.randint(1000,4000) # generate id
   cpf_gen  = random.randint(10**8,9*10**8) # generate random cpf can be change to if-else to generate  too cnpj 14 digits
 	
-  a_client = client(my_id,cpf_gen,names[i], a , random.randint(0,4000))
+  a_client = client(my_id,cpf_gen,names[i], a , round(random.uniform(0,2000),2))
 	
   mc.add_client(a_client)
   
